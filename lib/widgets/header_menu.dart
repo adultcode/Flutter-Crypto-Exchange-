@@ -12,7 +12,7 @@ class HeaderMenu extends StatelessWidget {
     return Container(
       width: ScreenSize.width,
       padding: EdgeInsets.symmetric(
-          vertical: ScreenSize.height * 0.02,
+          vertical: ScreenSize.height * 0.01,
           horizontal: ScreenSize.width * 0.02),
       color: CLR.secondary_black,
       // color: Colors.black,
@@ -54,7 +54,7 @@ class HeaderMenu extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
-                        padding: EdgeInsets.symmetric(vertical: 8,horizontal: 20),
+                        padding: EdgeInsets.symmetric(vertical: 6,horizontal: 20),
                           decoration: BoxDecoration(
                             color: CLR.header_black,
                               borderRadius:
