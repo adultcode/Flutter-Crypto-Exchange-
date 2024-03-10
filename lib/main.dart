@@ -29,18 +29,27 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           labelLarge:TextStyle(color: Colors.white,
               fontWeight: FontWeight.bold,
-              //fontFamily: 'nunito',
+              fontFamily: 'nunito',
               fontSize: ConstSize.symbol_text_size) ,
           displayMedium: TextStyle(color: Colors.white,
               fontWeight: FontWeight.w600,
-              //fontFamily: 'nunito',
+              fontFamily: 'nunito',
               fontSize: ConstSize.menu_text_size),
+
           displaySmall: TextStyle(
             color: CLR.grey_text,
               fontWeight: FontWeight.w400,
               fontSize: ConstSize.small_text_size,
-              //fontFamily: 'interphases'
+            fontFamily: 'nunito',
+          ),
+          /// card title
+          displayLarge: TextStyle(
+            color: CLR.grey_text,
+            fontWeight: FontWeight.w400,
+            fontSize: ConstSize.card_title_size,
+            fontFamily: 'nunito',
           )
+
         )
       ),
       home:  MyHomePage(),

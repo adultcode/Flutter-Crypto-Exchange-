@@ -7,9 +7,9 @@ import '../constant/size.dart';
 Widget HeaderInfo(BuildContext context){
   return Container(
     padding: EdgeInsets.symmetric(vertical: 12,horizontal: 15),
-    margin: EdgeInsets.symmetric(vertical: ScreenSize.height*0.01,horizontal: ScreenSize.width*0.02),
+   // margin: EdgeInsets.symmetric(vertical: ScreenSize.height*0.01,horizontal: ScreenSize.width*0.02),
     decoration: BoxDecoration(
-      color: CLR.secondary_black,
+      color: CLR.header_black,
       borderRadius: BorderRadius.all(Radius.circular(ConstSize.card_radius))
     ),
     child: Row(
