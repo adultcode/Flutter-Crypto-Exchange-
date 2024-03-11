@@ -4,6 +4,7 @@ import '../../constant/color.dart';
 import '../../constant/decoration.dart';
 import '../../constant/screen_size.dart';
 import '../../constant/size.dart';
+import '../market_section.dart';
 
 class BigMarket extends StatelessWidget {
   const BigMarket({super.key});
@@ -47,6 +48,18 @@ class BigMarket extends StatelessWidget {
                 )
               ],
             ),
+          ),
+
+          /*
+          order buttons
+           */
+          SizedBox(height: 10,),
+          Row(
+            children: [
+              Expanded(child: MarketSection(isSell: true,)),
+              SizedBox(width: 10,),
+              Expanded(child: MarketSection(isSell: false,)),
+            ],
           )
         ],
       ),

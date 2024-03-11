@@ -43,6 +43,8 @@ dependencies:
   freezed_annotation: any
   json_annotation: any
   get_it: ^7.6.4
+
+  syncfusion_flutter_core : any
   syncfusion_flutter_sliders: any
 
 
