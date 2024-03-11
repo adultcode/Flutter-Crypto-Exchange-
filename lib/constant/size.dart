@@ -17,6 +17,8 @@ class ConstSize{
 
   static double info_horizontal_padding = 15;
   static double info_vertical_padding = 12;
+  static double chart_height = 290;
+  static double market_height = 260;
 
   /////////
 static var panel_header_padding = EdgeInsets.only(left: 15,top: 8);

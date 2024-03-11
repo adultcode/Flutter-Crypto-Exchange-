@@ -13,24 +13,31 @@ class BigOrderBook extends StatelessWidget {
   List<Widget> sell_orders =[];
 
   BigOrderBook(){
-    buy_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,124",total: "42",volume: "142,541",isSell: false) ));
-    buy_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,113",total: "10",volume: "58,720",isSell: false) ));
-    buy_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,129",total: "124",volume: "4,951",isSell: false) ));
-    buy_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,104",total: "13",volume: "74,024",isSell: false) ));
-    buy_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,174",total: "15",volume: "5,875",isSell: false) ));
 
-    sell_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,124",total: "42",volume: "142,541",isSell: true) ));
-    sell_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,113",total: "10",volume: "58,720",isSell: true) ));
-    sell_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,129",total: "124",volume: "4,951",isSell: true) ));
-    sell_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,104",total: "13",volume: "74,024",isSell: true) ));
-    sell_orders.add(OrderbookItem(orderModel:OrderModel(price: "79,174",total: "15",volume: "5,875",isSell: true) ));
+    buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,127",amount: "127",volume: "1,872,214",isSell: false),));
+    buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,047",amount: "32",volume: "35,488,158",isSell: false),));
+    buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "71,520",amount: "1,842",volume: "82,841",isSell: false),));
+    buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "73,852",amount: "12",volume: "14,821",isSell: false),));
+    buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "70,412",amount: "982",volume: "42,841",isSell: false),));
+    buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "69,412",amount: "825",volume: "11,646",isSell: false),));
+    buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,047",amount: "32",volume: "35,488,158",isSell: false),));
+
+
+    sell_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,127",amount: "127",volume: "1,872,214",isSell: true),));
+    sell_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,047",amount: "32",volume: "35,488,158",isSell: true),));
+    sell_orders.add(OrderBookItem(orderModel: OrderModel(price: "71,520",amount: "1,842",volume: "82,841",isSell: true),));
+    sell_orders.add(OrderBookItem(orderModel: OrderModel(price: "73,852",amount: "12",volume: "14,821",isSell: true),));
+    sell_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,432",amount: "1,842",volume: "25,774",isSell: true),));
+    sell_orders.add(OrderBookItem(orderModel: OrderModel(price: "74,980",amount: "134",volume: "75,366",isSell: true),));
+    sell_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,047",amount: "32",volume: "35,488,158",isSell: true),));
 
   }
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenSize.height*0.4+260,
-      //width: ScreenSize.width*0.3, //57+37 = 94+4+1 => 99
+      height: ConstSize.market_height+ConstSize.chart_height+10,
+      //height: ScreenSize.height*0.4+270,
+     // width: ScreenSize.width*0.37,
       decoration: DCR.panel_decoration,
       child: Column(
         children: [
@@ -71,22 +78,26 @@ class BigOrderBook extends StatelessWidget {
           ),
 
           /*
-          list titles
+          list title
            */
+
+          SizedBox(height: 10,),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(child: Text("Price",style:  Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8)),)),
-                Expanded(child: Text("Amount",style:  Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8)))),
-                Expanded(child: Text("Total",style:  Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8)))),
+                Expanded(child: Text("Price(USDT)",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8)),)),
+                Expanded(child: Text("Amount",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8)),)),
+                Expanded(child: Text("Volume",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8)),)),
               ],
             ),
           ),
+
           ...buy_orders,
           SizedBox(height: 15,),
           ...sell_orders
+
+
         ],
       ),
     );

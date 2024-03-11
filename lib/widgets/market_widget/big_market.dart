@@ -11,8 +11,7 @@ class BigMarket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
-      //height: ScreenSize.height*0.3,
+      height: ConstSize.market_height,
       width: ScreenSize.width*0.6,
       decoration: DCR.panel_decoration,
       child: Column(

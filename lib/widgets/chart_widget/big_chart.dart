@@ -10,8 +10,10 @@ class BigChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Height: ${ScreenSize.height*0.4}");
     return Container(
-      height: ScreenSize.height*0.4,
+      height: ConstSize.chart_height,
+     // height: ScreenSize.height*0.4,
       width: ScreenSize.width*0.6,
       decoration: DCR.panel_decoration,
       child: Column(
