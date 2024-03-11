@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../constant/color.dart';
 import '../../constant/decoration.dart';
+import '../../constant/size.dart';
 
 class BigChart extends StatelessWidget {
   const BigChart({super.key});
@@ -10,26 +11,29 @@ class BigChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenSize.height*0.55,
-      width: ScreenSize.width*0.575,
-     // color: Colors.green,
+      height: ScreenSize.height*0.4,
+      width: ScreenSize.width*0.6,
       decoration: DCR.panel_decoration,
       child: Column(
         children: [
-
-          /// header of card
           Container(
             alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(left: 15,top: 8),
-            width: ScreenSize.width*0.575,
-            height: 33,
-           decoration: DCR.panel_header_decoration,
+            padding: ConstSize.panel_header_padding,
+            width: ScreenSize.width*0.6,
+            decoration: DCR.panel_header_decoration,
+            height: 35,
             child: Row(
               children: [
+                /*
+                price
+                 */
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Price",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: CLR.gold_color),),
+                    Text("Price",style: Theme.of(context).textTheme.displayLarge!.copyWith(
+
+                        color: CLR.gold_color
+                    ),),
                     Container(height: 2,width: 25,color: CLR.gold_color,)
                   ],
                 ),
@@ -40,11 +44,10 @@ class BigChart extends StatelessWidget {
                     Text("Depth",style: Theme.of(context).textTheme.displayLarge,),
                     Container(height: 2,width: 25,color: Colors.transparent,)
                   ],
-                ),
+                )
               ],
             ),
-          ),
-          /// body of card
+          )
         ],
       ),
     );

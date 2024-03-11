@@ -1,11 +1,11 @@
-import 'package:crypto_exchange/widgets/market_widget/big_market.dart';
+import 'package:crypto_exchange/constant/screen_size.dart';
+import 'package:crypto_exchange/widgets/chart_widget/big_chart.dart';
+import 'package:crypto_exchange/widgets/header_information.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/color.dart';
-import '../../constant/screen_size.dart';
-import '../../widgets/chart_widget/big_chart.dart';
-import '../../widgets/header_information.dart';
 import '../../widgets/header_menu.dart';
+import '../../widgets/market_widget/big_market.dart';
 import '../../widgets/orderbook_widget/big_orderbook.dart';
 
 class BigHomePage extends StatefulWidget {
@@ -23,41 +23,54 @@ class _BigHomePageState extends State<BigHomePage> {
       body: Column(
         children: [
           /*
-           show top menu of page
+          show top menu of page
            */
           HeaderMenu(),
+          Expanded(child: Container(
+            padding: EdgeInsets.symmetric(vertical: ScreenSize.height*0.01,
+            horizontal: ScreenSize.width*0.02),
+            child: SingleChildScrollView(
 
-          Expanded(
-          //  padding: EdgeInsets.symmetric(vertical: ScreenSize.height*0.01,horizontal: ScreenSize.width*0.02),
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: ScreenSize.height*0.01,horizontal: ScreenSize.width*0.02),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
+              child: Column(
+                children: [
 
-                    HeaderInfo(context),
-                    SizedBox(height: 20,),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(children: [
+                  HeaderInformation(context),
+
+                  SizedBox(height: 20,),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      Column(
+                        children: [
+                          /*
+                          chart
+                           */
                           BigChart(),
                           SizedBox(height: 10,),
-                          BigMarket(),
+                          /*
+                          market
+                           */
+                          BigMarket()
+                        ],
+                      ),
+                      /*
+                      orderbook
+                       */
+                      SizedBox(width: ScreenSize.width*0.01,),
+                      Expanded(child: BigOrderBook())
+                    ],
+                  )
 
-                        ],),
 
-                        SizedBox(width: ScreenSize.width*0.01,),
-                        BigOrderBook(),
-                      ],
-                    )
-                  ],
-                ),
+                ],
               ),
+
+
             ),
-          )
+          ))
         ],
-      )
+      ),
     );
   }
 }

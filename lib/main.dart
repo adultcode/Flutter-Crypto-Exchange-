@@ -1,4 +1,3 @@
-import 'package:crypto_exchange/constant/screen_size.dart';
 import 'package:crypto_exchange/page/home_page/big_home.dart';
 import 'package:crypto_exchange/page/home_page/small_home.dart';
 import 'package:flutter/foundation.dart';
@@ -6,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 import 'constant/color.dart';
+import 'constant/screen_size.dart';
 import 'constant/size.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
 
 
   runApp(const MyApp());
@@ -25,30 +24,19 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'nunito',
+        fontFamily:'nunito' ,
         textTheme: TextTheme(
-          labelLarge:TextStyle(color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'nunito',
-              fontSize: ConstSize.symbol_text_size) ,
-          displayMedium: TextStyle(color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontFamily: 'nunito',
-              fontSize: ConstSize.menu_text_size),
 
-          displaySmall: TextStyle(
-            color: CLR.grey_text,
-              fontWeight: FontWeight.w400,
-              fontSize: ConstSize.small_text_size,
-            fontFamily: 'nunito',
-          ),
-          /// card title
-          displayLarge: TextStyle(
-            color: CLR.grey_text,
-            fontWeight: FontWeight.w400,
-            fontSize: ConstSize.card_title_size,
-            fontFamily: 'nunito',
-          )
+          labelLarge: TextStyle(color: Colors.white,
+          fontWeight: FontWeight.bold,fontSize: ConstSize.symbol_text_size),
+          displaySmall: TextStyle(color: CLR.grey_text,fontWeight: FontWeight.w400,
+          fontSize: ConstSize.small_text_size),
+
+          displayMedium: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,
+          fontSize: ConstSize.menu_text_size),
+
+          displayLarge: TextStyle(color: CLR.grey_text,fontWeight: FontWeight.w400,
+          fontSize: ConstSize.card_title_size)
 
         )
       ),
@@ -76,19 +64,36 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return  LayoutBuilder(
-        builder: (context, constraints) {
-
-          ScreenSize.height = constraints.maxHeight;
-          ScreenSize.width = constraints.maxWidth;
-          if(ScreenSize.width>ConstSize.min_width_big)
-               return BigHomePage();
-          else return SmallHomePage();
-        },
-
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        print("Width: ${constraints.maxWidth}");
+        ScreenSize.width = constraints.maxWidth;
+        ScreenSize.height = constraints.maxHeight;
+        if(ScreenSize.width>ConstSize.min_width_big)
+          return BigHomePage();
+        else return SmallHomePage();
+      },
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 var trading =               '''

@@ -11,7 +11,7 @@ class _SmallHomePageState extends State<SmallHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('ajldsh'),
+      body: Center(child: Text("small page"),),
     );
   }
 }
