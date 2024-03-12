@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../constant/color.dart';
+import '../../constant/decoration.dart';
+import '../../widgets/header_information.dart';
+import '../../widgets/small_menu.dart';
+
 class SmallHomePage extends StatefulWidget {
   const SmallHomePage({super.key});
 
@@ -11,7 +16,13 @@ class _SmallHomePageState extends State<SmallHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("small page"),),
+      backgroundColor: CLR.screen_bg,
+      appBar: SmallAppbar(context),
+      body: Column(
+        children: [
+          //HeaderInformation(context)
+        ],
+      ),
     );
   }
 }
