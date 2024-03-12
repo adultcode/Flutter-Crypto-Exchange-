@@ -13,4 +13,5 @@ class CLR{
   static Color bluebtn_color = const Color(0xff255fff);
   static Color screen_bg = const Color(0xff141416);
   static Color grey_text = const Color(0xff5f6266);
+  static Color input_bg = const Color(0xff232427);
 }

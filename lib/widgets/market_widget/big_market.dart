@@ -1,10 +1,10 @@
+import 'package:crypto_exchange/widgets/market_section.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/color.dart';
 import '../../constant/decoration.dart';
 import '../../constant/screen_size.dart';
 import '../../constant/size.dart';
-import '../market_section.dart';
 
 class BigMarket extends StatelessWidget {
   const BigMarket({super.key});
@@ -61,6 +61,7 @@ class BigMarket extends StatelessWidget {
               Expanded(child: MarketSection(isSell: false,)),
             ],
           )
+
         ],
       ),
     );

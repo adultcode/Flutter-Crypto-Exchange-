@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../constant/color.dart';
 import '../../widgets/header_menu.dart';
+import '../../widgets/history_widget/big_history.dart';
 import '../../widgets/market_widget/big_market.dart';
 import '../../widgets/orderbook_widget/big_orderbook.dart';
 
@@ -60,7 +61,10 @@ class _BigHomePageState extends State<BigHomePage> {
                       SizedBox(width: ScreenSize.width*0.01,),
                       Expanded(child: BigOrderBook())
                     ],
-                  )
+                  ),
+                  SizedBox(height: 15,),
+                  BigHistory(),
+                  SizedBox(height: 15,),
 
 
                 ],
