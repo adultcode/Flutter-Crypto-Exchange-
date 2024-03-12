@@ -63,9 +63,13 @@ class _BigHomePageState extends State<BigHomePage> {
                     ],
                   ),
                   SizedBox(height: 15,),
-                  BigHistory(),
-                  SizedBox(height: 15,),
 
+
+                      /*
+                      position panel
+                       */
+                  BigHostory(),
+                  SizedBox(height: 10,),
 
                 ],
               ),

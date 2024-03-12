@@ -1,13 +1,15 @@
-import 'package:crypto_exchange/constant/screen_size.dart';
 import 'package:crypto_exchange/model/position_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/color.dart';
 import '../../constant/decoration.dart';
+import '../../constant/screen_size.dart';
 import '../../constant/size.dart';
-import '../items/position_item/position_big_item.dart';
+import '../items/position/big_position_item.dart';
 
-class BigHistory extends StatelessWidget {
+
+class BigHostory extends StatelessWidget {
+  const BigHostory({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,9 @@ class BigHistory extends StatelessWidget {
       decoration: DCR.panel_decoration,
       child: Column(
         children: [
+          /*
+          header
+           */
           Container(
             alignment: Alignment.centerLeft,
             padding: ConstSize.panel_header_padding,
@@ -36,7 +41,7 @@ class BigHistory extends StatelessWidget {
 
                         color: CLR.gold_color
                     ),),
-                    Container(height: 2,width: 70,color: CLR.gold_color,)
+                    Container(height: 2,width: 60,color: CLR.gold_color,)
                   ],
                 ),
                 SizedBox(width: 15,),
@@ -53,7 +58,8 @@ class BigHistory extends StatelessWidget {
           /*
           title
            */
-          SizedBox(height: 3,),
+
+          SizedBox(height: 5,),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -67,13 +73,14 @@ class BigHistory extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            height: 0.4,
-            width:ScreenSize.width*0.96 ,
-            color: Colors.white54,
-          ),
-          BigPositionItem(positionModel: PositionModel(price: "72,421",market: "BTC/USDT",qty: "0.12",unrealized: "+12.4%",value: "72,531",isSell: true),),
-          BigPositionItem(positionModel: PositionModel(price: "56,683",market: "BTC/USDT",qty: "12.5",unrealized: "-23.7%",value: "56,871",isSell: false),),
+          SizedBox(height: 10,),
+
+          BigPositionItem(PositionModel(isSell: true,value: "78,126",unrealized: "+12.2%",qty: "1.4",market: "BTC/USDT",
+          price: "72,684")),
+
+          BigPositionItem(PositionModel(isSell: false,value: "77,681",unrealized: "-4.5%",qty: "0.6",market: "BTC/USDT",
+              price: "72,820")),
+
         ],
       ),
     );

@@ -1,5 +1,6 @@
 class PositionModel{
 
+
   String? market;
   String? qty;
   String? value;
@@ -8,5 +9,10 @@ class PositionModel{
   bool? isSell;
 
   PositionModel(
-      {this.market, this.qty, this.value, this.price, this.unrealized,this.isSell});
+      {this.market,
+      this.qty,
+      this.value,
+      this.price,
+      this.unrealized,
+      this.isSell});
 }
