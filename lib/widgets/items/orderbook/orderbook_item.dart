@@ -1,7 +1,7 @@
 import 'package:crypto_exchange/model/order_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../constant/color.dart';
+import '../../../constant/color.dart';
 
 
 class OrderBookItem extends StatelessWidget {

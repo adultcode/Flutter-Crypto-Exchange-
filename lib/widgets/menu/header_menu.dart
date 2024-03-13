@@ -2,7 +2,7 @@ import 'package:crypto_exchange/constant/screen_size.dart';
 import 'package:crypto_exchange/constant/size.dart';
 import 'package:flutter/material.dart';
 
-import '../constant/color.dart';
+import '../../constant/color.dart';
 
 
 class HeaderMenu extends StatelessWidget {
