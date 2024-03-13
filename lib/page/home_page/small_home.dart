@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../constant/color.dart';
 import '../../constant/decoration.dart';
 import '../../widgets/header_information.dart';
+import '../../widgets/history_widget/small_history.dart';
 import '../../widgets/market_widget/small_market.dart';
 import '../../widgets/orderbook_widget/small_orderbook.dart';
 
@@ -36,7 +37,7 @@ class _SmallHomePageState extends State<SmallHomePage> {
             ),
           )
           ),
-          Expanded(flex:3,child: Container(color: Colors.redAccent,)),
+          Expanded(flex:3,child: SmallHostory()),
         ],
 
       ),

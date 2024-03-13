@@ -35,40 +35,42 @@ class SmallOrderBook extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
-    return Container(
-    //  height: ConstSize.market_height+ConstSize.chart_height+10,
-      //height: ScreenSize.height*0.4+270,
-      // width: ScreenSize.width*0.37,
-      decoration: DCR.panel_decoration,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-
-
-          /*
-          list title
-           */
-
-         // SizedBox(height: 10,),
-          Padding(
-            padding: const EdgeInsets.all(6.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-            Text("Price(USDT)",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8),
-                fontSize: ConstSize.small_text_size),),
-                 Text("Amount",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8),
-                    fontSize: ConstSize.small_text_size),),
-              ],
+    return SingleChildScrollView(
+      child: Container(
+      //  height: ConstSize.market_height+ConstSize.chart_height+10,
+        //height: ScreenSize.height*0.4+270,
+        // width: ScreenSize.width*0.37,
+        decoration: DCR.panel_decoration,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+      
+      
+            /*
+            list title
+             */
+      
+           // SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.all(6.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+              Text("Price(USDT)",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8),
+                  fontSize: ConstSize.small_text_size),),
+                   Text("Amount",style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white.withOpacity(0.8),
+                      fontSize: ConstSize.small_text_size),),
+                ],
+              ),
             ),
-          ),
-
-           ...buy_orders,
-           SizedBox(height: 15,),
-           ...sell_orders
-
-
-        ],
+      
+             ...buy_orders,
+             SizedBox(height: 15,),
+             ...sell_orders
+      
+      
+          ],
+        ),
       ),
     );
   }
