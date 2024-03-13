@@ -1,11 +1,10 @@
-import 'package:crypto_exchange/widgets/input_widget.dart';
+import 'package:crypto_exchange/widgets/input/small_input.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 import '../../constant/color.dart';
 import '../../constant/size.dart';
-import '../small_input.dart';
 
 class SmallMarket extends StatelessWidget {
   const SmallMarket({super.key});
@@ -13,28 +12,33 @@ class SmallMarket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 8),
+      padding: EdgeInsets.symmetric(horizontal: 8,vertical: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-
+          /*
+          buttons
+           */
           Row(
             children: [
-              Expanded(
-                  child: Container(
-                     alignment: Alignment.center,
-                     padding: EdgeInsets.symmetric(horizontal: 7,vertical: 5),
-                     decoration: BoxDecoration(
-                        color: Colors.redAccent,
-                        borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(ConstSize.card_radius),
-                        bottomLeft: Radius.circular(ConstSize.card_radius),
-                     )
-                    ),
-                     child:  Text("Buy",style: Theme.of(context).textTheme.displayMedium,),)
+              Expanded(child: Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.symmetric(horizontal: 7,vertical: 5),
+                decoration: BoxDecoration(
+                  color: CLR.input_bg,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(ConstSize.card_radius),
+                    bottomLeft: Radius.circular(ConstSize.card_radius),
+
+                  )
+                ),
+                child: Text("Sell",
+                style: Theme.of(context).textTheme.displayMedium,),
+              )
               ),
-              SizedBox(width: 5,),
-              Expanded(child:  Container(
+              SizedBox(width: 8,),
+
+              Expanded(child: Container(
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(horizontal: 7,vertical: 5),
                 decoration: BoxDecoration(
@@ -42,21 +46,22 @@ class SmallMarket extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(ConstSize.card_radius),
                       bottomRight: Radius.circular(ConstSize.card_radius),
+
                     )
                 ),
-                child:  Text("Buy",style: Theme.of(context).textTheme.displayMedium,),)
-              ),
+                child: Text("Buy",
+                  style: Theme.of(context).textTheme.displayMedium,),
+              )
+              )
             ],
           ),
 
           /*
           inputs
            */
-       //   SizedBox(height: 20,),
-          SmallInputWidget(title: "BTC",price: "75,578",),
-        //  SizedBox(height: 20,),
-          SmallInputWidget(title: "Amount",price: "0.0021",),
-        //  SizedBox(height: 15,),
+
+          SmallInputWidget(title: "BTC",price: "75,124",),
+          SmallInputWidget(title: "Amount",price: "0.041",),
           Container(
             height: 40,
             width: double.infinity,
@@ -88,10 +93,8 @@ class SmallMarket extends StatelessWidget {
                 },
               ),
             ),
-            ),
-
-            SmallInputWidget(title: "Value",price: "42,124",),
-         //   SizedBox(height: 15,),
+          ),
+          SmallInputWidget(title: "Value",price: "12,024",),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: CLR.greenbtn_color,
@@ -103,7 +106,7 @@ class SmallMarket extends StatelessWidget {
 
               onPressed: () {
 
-              }, child: Text("Sell",
+              }, child: Text("Buy",
             style: Theme.of(context).textTheme.displayLarge!.copyWith(color: Colors.white,
                 fontWeight: FontWeight.w800),
           )

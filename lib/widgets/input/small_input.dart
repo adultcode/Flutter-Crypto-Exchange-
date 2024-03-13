@@ -1,8 +1,8 @@
 import 'package:crypto_exchange/constant/size.dart';
 import 'package:flutter/material.dart';
 
-import '../constant/color.dart';
-import '../constant/decoration.dart';
+import '../../constant/color.dart';
+import '../../constant/decoration.dart';
 
 class SmallInputWidget extends StatelessWidget {
 

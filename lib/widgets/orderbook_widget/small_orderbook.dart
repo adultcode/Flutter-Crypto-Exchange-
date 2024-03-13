@@ -41,8 +41,7 @@ class SmallOrderBook extends StatelessWidget {
       // width: ScreenSize.width*0.37,
       decoration: DCR.panel_decoration,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
 
 

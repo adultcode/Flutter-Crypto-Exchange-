@@ -1,5 +1,5 @@
 import 'package:crypto_exchange/constant/size.dart';
-import 'package:crypto_exchange/widgets/input_widget.dart';
+import 'package:crypto_exchange/widgets/input/input_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_core/core.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
