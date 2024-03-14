@@ -42,8 +42,8 @@ dependencies:
   shared_preferences: any
   freezed_annotation: any
   json_annotation: any
+  socket_io_client: ^2.0.3+1
   get_it: ^7.6.4
-
   syncfusion_flutter_core : any
   syncfusion_flutter_sliders: any
 
@@ -58,6 +58,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  build_runner: ^2.4.7
 
 
 # For information on the generic Dart part of this file, see the

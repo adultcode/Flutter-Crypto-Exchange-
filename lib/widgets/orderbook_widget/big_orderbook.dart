@@ -1,19 +1,117 @@
 import 'package:crypto_exchange/model/order_model.dart';
 import 'package:flutter/material.dart';
-
+import 'package:socket_io_client/socket_io_client.dart' as IO;
 import '../../constant/color.dart';
 import '../../constant/decoration.dart';
 import '../../constant/screen_size.dart';
 import '../../constant/size.dart';
 import '../items/orderbook/orderbook_item.dart';
 
-class BigOrderBook extends StatelessWidget {
-
-  List<Widget> buy_orders =[];
-  List<Widget> sell_orders =[];
+class BigOrderBook extends StatefulWidget {
 
   BigOrderBook(){
 
+    
+  }
+
+  @override
+  State<BigOrderBook> createState() => _BigOrderBookState();
+}
+
+class _BigOrderBookState extends State<BigOrderBook> {
+  List<Widget> buy_orders =[];
+
+  List<Widget> sell_orders =[];
+  
+  
+  IO.Socket? socket;
+  
+
+  var flag = 0;
+  var flag_buy = 0;
+  
+  void initilizeSocket(){
+    
+    
+    socket = IO.io("https://api.wallex.ir",
+    <String,dynamic>{
+
+      "transports": ["websocket"],
+    });
+
+
+
+    socket?.onConnect((data) {
+
+      print("Connected to socket.io");
+      socket?.emit("subscribe",{"channel": "USDTTMN@sellDepth"});
+      socket?.emit("subscribe",{"channel": "USDTTMN@buyDepth"});
+    });
+    
+    
+    socket?.on("Broadcaster", (data) {
+     // print("Received data: $data");
+      debugPrint("Received data: ${data[0]}");
+      flag = 0;
+      flag_buy = 0;
+
+      /*
+      sell data stream
+       */
+      if(data!=null && data[0].toString()=="USDTTMN@sellDepth"){
+
+
+        sell_orders.clear();
+        data[1].forEach((key,value){
+
+          if(value!=null){
+
+            if(flag<5){
+              setState(() {
+                sell_orders.add(OrderBookItem(orderModel: OrderModel.fromJson(value),));
+                flag++;
+              });
+            }
+          }
+        });
+      }
+
+      /*
+      buy data stream
+       */
+      if(data!=null && data[0].toString()=="USDTTMN@buyDepth"){
+
+
+        buy_orders.clear();
+        data[1].forEach((key,value){
+
+          if(value!=null){
+
+            if(flag_buy<5){
+              setState(() {
+                buy_orders.add(OrderBookItem(orderModel:
+                OrderModel.fromJson(value)
+                  ..isSell=false
+                  ,));
+                flag_buy++;
+              });
+            }
+          }
+        });
+      }
+    });
+    
+  }
+  
+  
+  
+  
+  
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initilizeSocket();
     buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,127",amount: "127",volume: "1,872,214",isSell: false),));
     buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,047",amount: "32",volume: "35,488,158",isSell: false),));
     buy_orders.add(OrderBookItem(orderModel: OrderModel(price: "71,520",amount: "1,842",volume: "82,841",isSell: false),));
@@ -32,12 +130,13 @@ class BigOrderBook extends StatelessWidget {
     sell_orders.add(OrderBookItem(orderModel: OrderModel(price: "72,047",amount: "32",volume: "35,488,158",isSell: true),));
 
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: ConstSize.market_height+ConstSize.chart_height+10,
       //height: ScreenSize.height*0.4+270,
-     // width: ScreenSize.width*0.37,
+      // width: ScreenSize.width*0.37,
       decoration: DCR.panel_decoration,
       child: Column(
         children: [

@@ -1,5 +1,6 @@
 import 'package:crypto_exchange/page/home_page/big_home.dart';
 import 'package:crypto_exchange/page/home_page/small_home.dart';
+import 'package:crypto_exchange/test_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -66,10 +67,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        print("Width: ${constraints.maxWidth}");
+    //    print("Width: ${constraints.maxWidth}");
         ScreenSize.width = constraints.maxWidth;
         ScreenSize.height = constraints.maxHeight;
         if(ScreenSize.width>ConstSize.min_width_big)
+        //  return TestPage();
           return BigHomePage();
         else return SmallHomePage();
       },
